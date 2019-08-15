@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="my-4">
+  <!--small>Home | Recent Post Article</small-->
+</h1>
+<!-- Blog Post -->
+<div class="card mb-4">
+  {% for article in articles %}
+    <div class="card-body">
+        <a href="{{ article.get_absolute_url }}"><h3 class="card-title">{{ article.title }}</h3></a>
+        <p class="card-text">{{ article.excerpt }}</p>
+        <a href="{{ article.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
+    </div>
+    <div class="card-footer text-muted">
+        Posted on {{ article.created_time }} by
+        <a href="/about.html">{{ article.author }}</a>
+    </div>
+  {% empty %}
+    <div class="card-body">暂时还没有发布的文章！</div>
+  {% endfor %}
+</div>
+{% endblock main %}
+
+{% block pagination %}
+<ul class="pagination justify-content-center mb-4">
+    {% if articles.has_previous %}
+    <li class="page-item">
+        <a class="page-link" href="?page={{ articles.previous_page_number }}">&larr; Newer</a>
+    </li>
+    {% endif %}
+
+    <li class="page-link">
+      On {{ articles.number }} - All {{ articles.paginator.num_pages }}
+    </li>
+
+    {% if articles.has_next %}
+    <li class="page-item">
+        <a class="page-link" href="?page={{ articles.next_page_number }}">Older &rarr;</a>
+    </li>
+    {% endif %}
+
+</ul>
+{% endblock pagination %}

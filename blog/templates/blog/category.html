@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block main %}
+<!-- Blog Entries Column -->
+    <h1 class="my-4">
+        <small>Tags</small>
+    </h1>
+
+    <!-- Blog Post -->
+    <div class="card mb-4">
+    <!--img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"-->
+    
+        <div class="card-body">
+            {% for tag in tag_list %}
+                <span class="post-label select">{{ tag.name }}</span>
+            {% empty %}
+                <span class="post-label select">暂时还没有发布的文章！</span>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock main %}

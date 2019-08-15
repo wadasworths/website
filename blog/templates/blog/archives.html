@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block main %}
+<!-- Blog Entries Column -->
+    <h1 class="my-4">
+        <small>Category | 文章归档</small>
+    </h1>
+    <!-- Blog Post -->
+    <div class="card mb-4">
+        <div class="card-body">
+            {% regroup article_list by created_time.year as year_article_list %}
+                {% for year in year_article_list %}
+                <ul>{{ year.grouper }} 年
+                    <hr>
+                    {% for article in year.list %}
+                    <ul class="list-unstyled mb-0">
+                        <span class="article-date"><td>{{ article.created_time|date:"m-d" }}</td></span>
+                        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+                    </ul>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+        </div>
+    </div>
+{% endblock main %}

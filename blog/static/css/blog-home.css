@@ -1,0 +1,29 @@
+/*!
+ * Start Bootstrap - Blog Home (https://startbootstrap.com/template-overviews/blog-home)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-home/blob/master/LICENSE)
+ */
+body {
+  padding-top: 56px;
+}
+
+.article-date {
+  display:block;
+  float:left;
+  color:#818181;
+  padding:4px 20px 0 10px;
+  font-size:.8em;
+  line-height:1.5
+}
+
+.post-label {
+  display:inline-block;
+  color:#fff;
+  background:#faaa64;
+  font-size:16px;
+  border:1px solid #aaa;
+  border-radius:2px;
+  padding:1px 6px;
+  margin:0 7px 7px 0;
+  cursor:pointer
+}
